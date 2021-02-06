@@ -6,8 +6,6 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [EnableCors("*", "*", "*")]
-
     public class TeacherController : CommonApi<Teacher>
     {
 

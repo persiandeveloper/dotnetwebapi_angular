@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="SchoolContext.cs" />
     <Compile Include="Domain\Course.cs" />
     <Compile Include="Domain\Enrollment.cs" />
