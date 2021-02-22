@@ -1,0 +1,42 @@
+<div class="container" style="margin-top: 70px;">
+
+    <form class="text-center border border-light p-5">
+        <label class="form-label">Student:</label>
+        <select class="ml-2 form-select form-select-lg" name="selectecStudent" [(ngModel)]="selectecStudent">
+            <option *ngFor="let c of students" [value]="c.id">{{c.name}}</option>
+         </select>`
+
+         <label class="form-label">Subject:</label>
+         <select class="ml-2 form-select form-select-lg" name="selectedSubject" [(ngModel)]="selectecSubject">
+             <option *ngFor="let c of subjects" [value]="c.id">{{c.course}}</option>
+          </select>
+
+          <button mdbBtn color="info"  (click)="saveNew()" block="true" class="ml-2 my-4">
+             Add
+        </button>
+
+    </form>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>score</th>
+                <th>student</th>
+                <th>course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of grades; index as i;">
+                <th>{{i+1}}</th>
+                <td>
+                    <span *ngIf="item.score != 0 "> {{item.score}}</span>
+                    <input size="2" *ngIf="item.score == 0" type="text" [(ngModel)]="selectedScore" name="score"/>
+                    <button *ngIf="item.score == 0"  (click)="addScore(item)">Add Score</button>
+                </td>
+                <td>{{item.student}}</td>
+                <td>{{item.course}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

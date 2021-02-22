@@ -1,0 +1,48 @@
+<div class="container" style="margin-top: 70px;">
+
+    <div>
+        <form class="text-center border border-light p-5">
+
+            <p class="h4 mb-4">Add Course</p>
+
+            <input type="text" name="name" [(ngModel)]="course.name" class="form-control mb-4" placeholder="Name">
+
+            <button mdbBtn color="info" (click)="saveNew()" block="true" class="my-4">
+                <ng-template [ngIf]="updateMode">
+                    Update
+                </ng-template>
+                <ng-template [ngIf]="!updateMode">
+                    Add
+                </ng-template>
+            </button>
+
+
+        </form>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Teachers</th>
+                <th>Students</th>
+                <th>Average</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of courses; index as i;">
+                <th>{{i+1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.teachers}}</td>
+                <td>{{item.students}}</td>
+                <td>{{item.average}}</td>
+                <td><button (click)="enableUpdate(item)">Update</button></td>
+                    <td><button (click)="delete(item)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
